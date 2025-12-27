@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" stylesheets="@AdminCSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.jehn.javafxcourses.AdminController">
+   <children>
+      <VBox layoutX="332.0" layoutY="144.0" prefHeight="800.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <GridPane id="menu" prefHeight="35.0" prefWidth="1000.0" style="-fx-background-color: lightblue;">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="224.0" />
+                  <ColumnConstraints halignment="CENTER" maxWidth="917.0" minWidth="10.0" prefWidth="686.0" />
+                  <ColumnConstraints halignment="CENTER" minWidth="82.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <AnchorPane>
+                     <children>
+                        <Button layoutX="7.0" layoutY="6.0" mnemonicParsing="false" onAction="#homeClick" text="HOME" />
+                     </children>
+                  </AnchorPane>
+                  <Label fx:id="labelCourse" text="BLANK LABEL" textAlignment="CENTER" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="Gill Sans MT" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+            <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <TreeView id="treeView" fx:id="coursesTreeView" minWidth="-Infinity" prefHeight="770.0" prefWidth="225.0" style="-fx-background-insets: 0;" />
+                  <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: lightblue;" HBox.hgrow="ALWAYS">
+                     <children>
+                        <GridPane id="menu" prefHeight="62.0" prefWidth="775.0">
+                          <columnConstraints>
+                            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="70.0" />
+                            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="738.0" minWidth="10.0" prefWidth="707.0" />
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="140.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Button fx:id="backButton" mnemonicParsing="false" onAction="#backClick" text="BACK" visible="false" />
+                              <Label fx:id="labelChapter" text="BLANK LABEL" textAlignment="CENTER" GridPane.columnIndex="1">
+                                 <font>
+                                    <Font name="Gill Sans MT" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="newNoteButton" mnemonicParsing="false" onAction="#newNoteClick" text="NEW NOTE" visible="false" GridPane.columnIndex="2" />
+                           </children>
+                        </GridPane>
+                        <StackPane layoutX="10.0" layoutY="100.0" prefHeight="63.0" prefWidth="775.0">
+                           <children>
+                              <AnchorPane fx:id="paneNewCourse" prefHeight="90.0" prefWidth="775.0">
+                                 <children>
+                                    <Button layoutX="422.0" layoutY="19.0" mnemonicParsing="false" onAction="#addCourseClick" text="ADD COURSE" />
+                                    <TextField fx:id="textfieldCourse" layoutX="258.0" layoutY="19.0" promptText="COURSE NAME" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="paneNewChapter" prefHeight="90.0" prefWidth="775.0" visible="false">
+                                 <children>
+                                    <Button layoutX="418.0" layoutY="19.0" mnemonicParsing="false" onAction="#addChapterClick" text="ADD CHAPTER" />
+                                    <TextField fx:id="textfieldChapter" layoutX="254.0" layoutY="19.0" promptText="CHAPTER NAME" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="paneNewNoteTitle" prefHeight="90.0" prefWidth="775.0" visible="false">
+                                 <children>
+                                    <TextField fx:id="textfieldNoteTitle" layoutX="13.0" layoutY="19.0" prefHeight="25.0" prefWidth="750.0" promptText="TITLE OF NOTE" style="-fx-background-radius: 0;" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </StackPane>
+                        <StackPane prefWidth="775.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <FlowPane fx:id="paneCoursesList" alignment="CENTER" hgap="10.0" prefHeight="200.0" prefWidth="200.0" vgap="10.0" />
+                              <FlowPane fx:id="paneChaptersList" alignment="CENTER" hgap="10.0" prefHeight="200.0" prefWidth="200.0" vgap="10.0" visible="false" />
+                              <FlowPane fx:id="paneSelectedChapter" alignment="CENTER" hgap="10.0" layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" vgap="10.0" visible="false">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#notesClick" text="NOTES" />
+                                    <Button mnemonicParsing="false" onAction="#questionsClick" text="QUESTIONS" />
+                                 </children>
+                              </FlowPane>
+                              <VBox fx:id="paneNotes" prefHeight="200.0" prefWidth="100.0" visible="false" />
+                              <AnchorPane fx:id="paneNewNoteContent" cacheShape="false" centerShape="false" prefHeight="200.0" prefWidth="200.0" scaleShape="false" snapToPixel="false" visible="false">
+                                 <children>
+                                    <TextArea fx:id="textfieldNoteContent" cacheShape="false" centerShape="false" layoutX="14.0" layoutY="14.0" prefHeight="555.0" prefWidth="750.0" scaleShape="false" snapToPixel="false" />
+                                    <Button layoutX="584.0" layoutY="587.0" mnemonicParsing="false" onAction="#cancelNewNoteClick" text="CANCEL" />
+                                    <Button fx:id="submitNewNoteButton" layoutX="663.0" layoutY="587.0" mnemonicParsing="false" onAction="#submitNewNoteClick" text="SUBMIT" />
+                                    <Button fx:id="editNoteButton" layoutX="670.0" layoutY="587.0" mnemonicParsing="false" onAction="#EditNoteClick" text="EDIT" />
+                                 </children>
+                              </AnchorPane>
+                           </children></StackPane>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children></VBox>
+   </children>
+</AnchorPane>

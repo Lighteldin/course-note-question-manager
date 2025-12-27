@@ -1,0 +1,33 @@
+.label{
+    -fx-font-size: 16px;
+    -fx-font-family: 'Gill Sans MT';
+}
+.button{
+    -fx-background-color: green;
+    -fx-text-fill: black;
+    -fx-font-size: 13px;
+    -fx-font-family: 'Berlin Sans FB';
+}
+.button:hover{
+    -fx-text-fill: black;
+    -fx-background-color: white;
+}
+#menu {
+    -fx-border-color: transparent transparent black transparent;
+    -fx-border-width: 0 0 1px 0;
+}
+#treeView{
+    -fx-border-color: transparent black transparent transparent;
+    -fx-border-width: 0 1px 0 0;
+}
+#noteButtons{
+    -fx-text-fill: black;
+    -fx-background-color: orange;
+    -fx-background-radius: 0;
+    -fx-max-width: 775;
+    -fx-padding: 15, 0, 20, 0;
+}
+#noteButtons:hover{
+    -fx-cursor: 'hand';
+    -fx-background-color: green;
+}
